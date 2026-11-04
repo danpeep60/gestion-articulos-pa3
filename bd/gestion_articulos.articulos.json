@@ -1,0 +1,96 @@
+[{
+  "_id": {
+    "$oid": "6acfb2765435604bc2978f03"
+  },
+  "nombre": "Laptop Lenovo IdeaPad",
+  "categoria": "Tecnología",
+  "precio": 2499.9,
+  "descripcion": "Laptop 15.6\" 8GB RAM, 512GB SSD",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-14T16:48:54.537Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-14T16:48:54.537Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6acfb2765435604bc2978f04"
+  },
+  "nombre": "Mouse inalámbrico",
+  "categoria": "Accesorios",
+  "precio": 45.5,
+  "descripcion": "Mouse óptico 2.4GHz",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-14T16:48:54.537Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-14T16:48:54.537Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6acfb2765435604bc2978f05"
+  },
+  "nombre": "Teclado mecánico",
+  "categoria": "Accesorios",
+  "precio": 189,
+  "descripcion": "Switch rojo, retroiluminado",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-14T16:48:54.537Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-14T16:48:54.537Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6acfb2765435604bc2978f06"
+  },
+  "nombre": "Monitor 24 pulgadas",
+  "categoria": "Tecnología",
+  "precio": 699,
+  "descripcion": "Full HD, 75Hz",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-14T16:48:54.538Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-14T16:48:54.538Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6acfb2765435604bc2978f07"
+  },
+  "nombre": "Mochila para laptop",
+  "categoria": "Accesorios",
+  "precio": 120,
+  "descripcion": "Resistente al agua",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-14T16:48:54.538Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-14T16:48:54.538Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6acfb2765435604bc2978f08"
+  },
+  "nombre": "Audífonos Bluetooth",
+  "categoria": "Audio",
+  "precio": 159.9,
+  "descripcion": "Cancelación de ruido",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2026-10-14T16:48:54.538Z"
+  },
+  "updatedAt": {
+    "$date": "2026-10-14T16:48:54.538Z"
+  }
+}]

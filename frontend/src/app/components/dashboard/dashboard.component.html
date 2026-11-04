@@ -1,0 +1,34 @@
+<h2 class="mb-4">Dashboard</h2>
+
+<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+<div class="row g-3 mb-4">
+  <div class="col-12 col-md-4">
+    <div class="card text-center"><div class="card-body">
+      <h6 class="text-muted">Total de artículos</h6>
+      <h3>{{ total }}</h3>
+    </div></div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="card text-center"><div class="card-body">
+      <h6 class="text-muted">Precio promedio</h6>
+      <h3>{{ precioPromedio | currency:'PEN':'S/ ' }}</h3>
+    </div></div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="card text-center"><div class="card-body">
+      <h6 class="text-muted">Categorías</h6>
+      <h3>{{ categorias.length }}</h3>
+    </div></div>
+  </div>
+</div>
+
+<h5>Últimos artículos registrados</h5>
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between" *ngFor="let a of recientes">
+    <span>{{ a.nombre }} <small class="text-muted">({{ a.categoria }})</small></span>
+    <strong>{{ a.precio | currency:'PEN':'S/ ' }}</strong>
+  </li>
+</ul>
+
+<a *ngIf="auth.esAdmin()" routerLink="/articulos/nuevo" class="btn btn-primary mt-4">Registrar nuevo artículo</a>
