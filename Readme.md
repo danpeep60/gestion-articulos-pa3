@@ -1,125 +1,91 @@
-# Gestion de Articulos
+# Gestión de Artículos (PA3)
 
-Esta es una aplicación web para guardar y organizar artículos (por ejemplo productos de una tienda). Con esto de puede hacer: 
+Aplicación web Full Stack para gestionar artículos, con autenticación JWT y control de acceso por roles.
 
-**Agregar** un artículo nuevo
-**Ver** la lista de todos los artículos
-**Editar** un artículo que ya existe
-**Eliminar** un artículo (primero me pregunta si estoy seguro)
+## Tecnologías
+- **Frontend principal:** Angular 16 + TypeScript
+- **Panel secundario:** React + TypeScript (Vite), React Router DOM, Context API, Axios
+- **Backend:** Node.js, Express, Mongoose
+- **Base de datos:** MongoDB
+- **Seguridad:** bcrypt, JSON Web Tokens (JWT)
 
-Lo importante: los datos no se pierden al cerrar la página, porque se guardan en una base de datos real (MongoDB).
+## Estructura
 
----
-
-## ¿Como funciona?
-
-La aplicación tiene tres partes que trabajan juntas:
-
-1. **Frontend (lo que se ve):** las pantallas con botones y formularios. Esta hecho con Angular.
-2. **Backend (el cerebro):** recibe lo que pides en la pantalla y se encarga de guardarlo o buscarlo. Esta hecho con Node.js y Express.
-3. **Base de datos (la memoria):** donde se guardan los articulos. Es MongoDB.
-
-Es como un restaurante: el frontend es el mesero que toma tu pedido, el backend es la cocina que lo prepara y la base de datos es la despensa donde se guarda todo.
-
-## Tecnologias que use
-
-- **Angular 16** y **TypeScript** para las pantallas
-- **Bootstrap 5** para que se vea ordenado y se adapte al celular
-- **Node.js** y **Express** para el servidor
-- **MongoDB** (con Mongoose) para guardar los datos
-- **Visual Studio Code** para programar y **MongoDB Compass** para ver la base de datos
-
-
-## ¿Que hay en cada carpeta?
-
-```
 gestion-articulos/
-    backend/                 → el servidor
-         src/
-            config/          → conexion con MongoDB
-            models/          → cómo es un articulo (nombre, precio, etc.)
-            controllers/     → lo que se hace al crear, ver, editar o borrar
-            middlewares/     → revisa que los datos estén bien antes de guardarlos
-            routes/          → las direcciones de la API
-            server.js        → archivo que enciende el servidor
-        seed.js              → agrega articulos de ejemplo
-        .env.example         → ejemplo de configuración
+├── backend/       API REST (Express + MongoDB)
+├── frontend/      Angular 16 (interfaz principal)
+├── panel-react/   Panel secundario en React
+├── bd/            Exportación de la base de datos de prueba
+├── Evidencias/    Capturas de la PA2
+├── Evidencias-PA3/ Capturas de la PA3
+└── CHANGELOG.md
 
-    frontend/                → las pantallas
-        src/app/
-            models/          → la forma de un artículo en TypeScript
-            services/        → habla con el servidor
-            components/
-                dashboard/       → pantalla principal con resumen
-                articulo-list/   → tabla con todos los artículos
-                articulo-form/   → formulario para crear y editar
 
-    README.md                → este archivo
-```
+## Roles
+| Rol | Permisos |
 
-## ¿Que necesito para probarlo?
+| admin | Ver, crear, editar y eliminar artículos |
+| user | Solo ver artículos |
 
-Instala esto antes de empezar:
+## Usuarios de prueba
+| Correo | Contraseña | Rol |
 
-1. **Node.js** (version 18 o más nueva)
-2. **MongoDB Community Server** (dejalo funcionando como servicio)
-3. **Angular CLI 16**. Se instala escribiendo esto en la terminal:
-```
-   npm install -g @angular/cli@16
-```
+| admin@demo.com | Admin123* | admin |
+| user@demo.com | User123* | user |
 
-## Como encender el proyecto, paso a paso
+## Requisitos
+- Node.js 18 o superior
+- MongoDB local (o una cuenta gratuita de MongoDB Atlas)
+- Angular CLI 16 (`npm install -g @angular/cli@16`)
 
-Necesitas **dos terminales abiertas al mismo tiempo**: una para el backend y otra para el frontend. No cierres ninguna mientras uses la aplicación.
+## Instalación y ejecución local
 
-### Terminal 1: el backend
+### 1. Backend
+bash
+cd backend
+npm install
+cp .env.example .env      # en Windows: copy .env.example .env
+# edita .env con tus valores
+npm run seed
+npm run dev
 
-1. Entra a la carpeta del backend:
-```
-   cd backend
-```
-2. Instala lo que necesita el proyecto:
-```
-   npm install
-```
-3. Crea un archivo llamado .env dentro de backend y copia esto adentro:
-```
-   PORT=3000
-   MONGO_URI=mongodb://127.0.0.1:27017/gestion_articulos
-```
-4. Agrega los artículos de ejemplo:
-```
-   npm run seed
-```
-   Debe aparecer: Datos de prueba insertados.
-5. Enciende el servidor:
-```
-   npm run dev
-```
-   Debe aparecer: MongoDB conectado y Servidor en http://localhost:3000.
+La API queda en http://localhost:3000
 
-### Terminal 2: el frontend
+### 2. Angular
+```bash
+cd frontend
+npm install
+ng serve
+```
+Abre http://localhost:4200
 
-1. Abre otra terminal y entra a la carpeta del frontend:
+### 3. Panel React
+bash
+cd panel-react
+npm install
+cp .env.example .env
+npm run dev
 ```
-   cd frontend
-```
-2. Instala lo que necesita el proyecto:
-```
-   npm install
-```
-3. Enciende la aplicación:
-```
-   ng serve
-```
-4. Cuando termine de cargar, abre el navegador en:
-```
-   http://localhost:4200
-```
+Abre http://localhost:5173
 
-## ¿Cómo uso la aplicación?
+## Variables de entorno
+Backend (`backend/.env.example`): `PORT`, `MONGO_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `CORS_ORIGINS`.
+React (`panel-react/.env.example`): `VITE_API_URL`.
 
-- **Dashboard:** muestra cuántos artículos hay, el precio promedio y las categorías.
-- **Artículos:** muestra la tabla con todos los artículos. Desde ahí puedes editar o eliminar.
-- **Nuevo artículo:** formulario para agregar uno. Si dejas un campo obligatorio vacío o pones un precio negativo, te avisa en rojo.
-- **Eliminar:** antes de borrar, pregunta si estás seguro.
+## Endpoints
+| Método | Ruta | Acceso |
+
+| POST | /api/auth/register | Público |
+| POST | /api/auth/login | Público |
+| GET | /api/articulos | Usuario con sesión |
+| GET | /api/articulos/:id | Usuario con sesión |
+| POST | /api/articulos | Solo admin |
+| PUT | /api/articulos/:id | Solo admin |
+| DELETE | /api/articulos/:id | Solo admin |
+
+Las rutas protegidas exigen el encabezado `Authorization: Bearer <token>`.
+
+## Aplicación desplegada
+- Angular: (URL de Vercel)
+- Panel React: (URL de Vercel)
+- API: (URL de Render) — el primer acceso puede tardar hasta un minuto porque el plan gratuito se suspende por inactividad.

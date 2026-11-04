@@ -28,6 +28,11 @@ Registro de cambios, correcciones y mejoras del proyecto Gestión de Artículos.
 - `seed.js`: los usuarios se crean antes de cerrar la conexión con MongoDB.
 - `articulo.routes.js`: se eliminó código duplicado pegado por error.
 - Login y registro con cuerpo vacío responden 400 en lugar de 500.
+- Panel React (Vite + TypeScript) con React Router DOM, Hooks y Axios.
+- Estado global de la sesión con Context API (`AuthContext`).
+- Ruta protegida, cierre de sesión y manejo de token expirado en React.
+- CRUD de artículos en React consumiendo la misma API REST que Angular.
+- Configuración de despliegue: MongoDB Atlas, Render (API) y Vercel (Angular y React).
 
 ## [1.0.0] - 2026-10-17 (PA2)
 
