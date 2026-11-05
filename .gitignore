@@ -3,4 +3,5 @@ dist/
 .angular/
 .env
 *.log
-.DS_Store
+.DS_Store*.zip
+*.zip

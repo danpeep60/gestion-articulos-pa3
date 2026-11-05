@@ -13,7 +13,7 @@ http.interceptors.request.use((config) => {
   return config;
 });
 
-// Después de cada respuesta: si el token venció o es inválido, cierra la sesión
+// Si el token venció o es inválido, cierra la sesión y vuelve al login
 http.interceptors.response.use(
   (respuesta) => respuesta,
   (error) => {
