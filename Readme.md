@@ -26,6 +26,7 @@ gestion-articulos/
 ├── panel-react/    Panel secundario en React
 ├── bd/             Exportación de la base de datos de prueba
 ├── Evidencias/     Capturas de la PA2
+├── Evidencias/     Capturas de la PA3
 └── CHANGELOG.md
 ```
 
